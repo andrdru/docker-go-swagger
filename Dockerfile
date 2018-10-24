@@ -22,6 +22,6 @@ go get -u github.com/go-swagger/go-swagger/cmd/swagger
 
 WORKDIR ${SW_WORKDIR}
 
-ENTRYPOINT swagger serve --no-open --port=${SW_PORT} --host="${SW_HOST}" --base-path="${SW_BASEPATH}" --flavor="${SW_FLAVOR}" "${SW_FILE}"
+ENTRYPOINT swagger generate spec -o ${SW_FILE} && swagger serve --no-open --port=${SW_PORT} --host="${SW_HOST}" --base-path="${SW_BASEPATH}" --flavor="${SW_FLAVOR}" "${SW_FILE}"
 
 EXPOSE ${SW_PORT}
