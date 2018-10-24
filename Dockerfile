@@ -16,7 +16,7 @@ ENV SW_HOST="$BUILD_SW_HOST"
 ENV SW_BASEPATH="$BUILD_SW_BASEPATH"
 ENV SW_FLAVOR="$BUILD_SW_FLAVOR"
 
-RUN mkdir /src &&\
+RUN mkdir -p ${SW_WORKDIR} &&\
 apk --no-cache add git &&\
 go get -u github.com/go-swagger/go-swagger/cmd/swagger
 
